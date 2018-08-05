@@ -24,14 +24,14 @@ namespace Marketplace.Models
         public int KategoriId { get; set; }
         public string Nama { get; set; }
         public List<Produk> Produk { get; set; }
-        public byte[] Ikon { get; set; }
+        public string Ikon { get; set; }
         public bool Status { get; set; }
     }
 
     public class ProdukGambar
     {
         public int ProdukGambarId { get; set; }
-        public byte[] Gambar { get; set; }
+        public string Gambar { get; set; }
         public int ProdukId { get; set; }
         public Produk Produk { get; set; }
         public bool Thumbnail { get; set; }

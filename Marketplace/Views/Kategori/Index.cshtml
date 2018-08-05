@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Marketplace.Models.Kategori>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ikon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nama)
+                </td>
+                <td>
+                    <img src="@item.Ikon" class="img-responsive" width="25" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.KategoriId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.KategoriId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.KategoriId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

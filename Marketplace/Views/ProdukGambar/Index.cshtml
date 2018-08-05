@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Marketplace.Models.ProdukGambar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gambar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Thumbnail)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produk)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            <td>
+                <img src="@item.Gambar" class="img-responsive" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thumbnail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produk.ProdukId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdukGambarId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProdukGambarId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdukGambarId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

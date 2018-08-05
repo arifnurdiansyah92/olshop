@@ -1,0 +1,36 @@
+﻿@model Marketplace.Models.ProdukGambar
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProdukGambar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gambar)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gambar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumbnail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Thumbnail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Produk)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Produk.ProdukId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProdukGambarId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

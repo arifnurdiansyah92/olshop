@@ -11,9 +11,10 @@ using System;
 namespace Marketplace.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180730161145_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,66 +69,6 @@ namespace Marketplace.Data.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Marketplace.Models.Kategori", b =>
-                {
-                    b.Property<int>("KategoriId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Ikon");
-
-                    b.Property<string>("Nama");
-
-                    b.Property<bool>("Status");
-
-                    b.HasKey("KategoriId");
-
-                    b.ToTable("Kategori");
-                });
-
-            modelBuilder.Entity("Marketplace.Models.Produk", b =>
-                {
-                    b.Property<int>("ProdukId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Deskripsi");
-
-                    b.Property<decimal>("Harga");
-
-                    b.Property<int>("KategoriId");
-
-                    b.Property<string>("Nama");
-
-                    b.Property<bool>("Status");
-
-                    b.Property<int>("Stok");
-
-                    b.Property<int>("StokLimit");
-
-                    b.HasKey("ProdukId");
-
-                    b.HasIndex("KategoriId");
-
-                    b.ToTable("Produk");
-                });
-
-            modelBuilder.Entity("Marketplace.Models.ProdukGambar", b =>
-                {
-                    b.Property<int>("ProdukGambarId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Gambar");
-
-                    b.Property<int>("ProdukId");
-
-                    b.Property<bool>("Thumbnail");
-
-                    b.HasKey("ProdukGambarId");
-
-                    b.HasIndex("ProdukId");
-
-                    b.ToTable("ProdukGambar");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -235,22 +176,6 @@ namespace Marketplace.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Marketplace.Models.Produk", b =>
-                {
-                    b.HasOne("Marketplace.Models.Kategori", "Kategori")
-                        .WithMany("Produk")
-                        .HasForeignKey("KategoriId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Marketplace.Models.ProdukGambar", b =>
-                {
-                    b.HasOne("Marketplace.Models.Produk", "Produk")
-                        .WithMany("Gambar")
-                        .HasForeignKey("ProdukId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

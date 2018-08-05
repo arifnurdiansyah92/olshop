@@ -11,9 +11,10 @@ using System;
 namespace Marketplace.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180730161642_produk")]
+    partial class produk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,7 +76,7 @@ namespace Marketplace.Data.Migrations
                     b.Property<int>("KategoriId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Ikon");
+                    b.Property<byte[]>("Ikon");
 
                     b.Property<string>("Nama");
 
@@ -117,7 +118,7 @@ namespace Marketplace.Data.Migrations
                     b.Property<int>("ProdukGambarId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Gambar");
+                    b.Property<byte[]>("Gambar");
 
                     b.Property<int>("ProdukId");
 

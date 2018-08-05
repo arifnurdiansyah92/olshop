@@ -11,9 +11,10 @@ using System;
 namespace Marketplace.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180805061157_byte_to_string_kategori")]
+    partial class byte_to_string_kategori
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,7 +118,7 @@ namespace Marketplace.Data.Migrations
                     b.Property<int>("ProdukGambarId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Gambar");
+                    b.Property<byte[]>("Gambar");
 
                     b.Property<int>("ProdukId");
 

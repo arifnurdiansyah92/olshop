@@ -1,0 +1,46 @@
+﻿@model Marketplace.Models.ProdukGambar
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>ProdukGambar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProdukGambarId" />
+            <div class="form-group">
+                <label asp-for="Gambar" class="control-label"></label>
+                <input asp-for="Gambar" class="form-control" />
+                <span asp-validation-for="Gambar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProdukId" class="control-label"></label>
+                <select asp-for="ProdukId" class="form-control" asp-items="ViewBag.ProdukId"></select>
+                <span asp-validation-for="ProdukId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Thumbnail" /> @Html.DisplayNameFor(model => model.Thumbnail)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
